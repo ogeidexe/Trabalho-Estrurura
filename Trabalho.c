@@ -5,6 +5,7 @@
 
 int main()
 {
+    printf("eu estou aqui")
     int x,v1[x3],v2[x4],v3[x5];
     int vaux1[x3], vaux2[x4], vaux3[x5];
     float processador[7];
