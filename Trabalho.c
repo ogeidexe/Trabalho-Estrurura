@@ -6,9 +6,9 @@
 int main()
 {
     int x,v1[x3],v2[x4],v3[x5];
-    float processador[7];
-    puts("metodos de Ordenação");
-    geraValores(v1,x3);
+    int vaux1[x3], vaux2[x4], vaux3[x5];
+    float processador[7];  
+    
     geraValores(v2,x4);
     geraValores(v3,x5);
     //recebe o apção da função menu
@@ -16,9 +16,21 @@ int main()
      switch(x)
      {
          case 1:
-             //Método da Bolha 
+            geraValores(v1,x3);
+            for(int i;i<x3;i++)
+            {
+                vaux1[i]=v1[i];
+            }
+             //Método da Bolha  
+            
             processador[0] = bubleSort(v1,x3);
-             //  Método da Bolha melhorado 
+              
+            //Recanrregando o vetor 
+            for(int i;i<x3;i++)
+            {
+                vaux1[i]=v1[i];
+            }
+            //  Método da Bolha melhorado
             processador[1] = bubleSortM(v1,x3);
              //Método de Ordenação Troca e Partição 
             // processador[2] = quickSort(v1);

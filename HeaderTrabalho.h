@@ -45,10 +45,10 @@ double bubleSort(int vet[], int x)
     int i,j,aux;
     double resultado=0;
     j=x;
-    #pragma omp parallel for 
+    //#pragma omp parallel for 
     for(i=0;i<x-1;i++)
     {
-        #pragma omp parallel for //13034.666000
+        //#pragma omp parallel for //13034.666000
         for(j=1;j<x-i;j++)
         {
             if(vet[j]>vet[j+1])
