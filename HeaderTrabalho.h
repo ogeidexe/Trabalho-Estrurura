@@ -125,7 +125,7 @@ void resultado(double vet[],int tamResultado)
     
     for(int i = 0; i < tamResultado; i++)
     {
-        printf("|Tempo|%lf ||  \n");
+        printf("|Tempo|%lf ||  \n",vet[i]);
     }
     
 }

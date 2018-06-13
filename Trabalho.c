@@ -7,7 +7,9 @@ int main()
 {
     int x,v1[x3],v2[x4],v3[x5];
     int vaux1[x3], vaux2[x4], vaux3[x5];
-    float processador[7];  
+    float processador[7];
+    clock_t start_t , end_t;  
+    float total[7];
     
     geraValores(v2,x4);
     geraValores(v3,x5);
@@ -21,18 +23,24 @@ int main()
             {
                 vaux1[i]=v1[i];
             }
-             //Método da Bolha  
             
+             //Método da Bolha  
+            start_t = clock();
             processador[0] = bubleSort(v1,x3);
-              
+            end_t = clock();
+            total[0] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
             //Recanrregando o vetor 
             for(int i;i<x3;i++)
             {
                 vaux1[i]=v1[i];
             }
+
             //  Método da Bolha melhorado
+            start_t = clock();
             processador[1] = bubleSortM(v1,x3);
-             //Método de Ordenação Troca e Partição 
+            end_t = clock();
+            total[1] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            //Método de Ordenação Troca e Partição 
             // processador[2] = quickSort(v1);
             //Método de Ordenação Inserção Direta 
     //         processador[3] = inserctSort(v1);
@@ -87,7 +95,7 @@ int main()
     //     case 7:
             
     //         break;
-    // }
+     }
     return 0;
 }
  
