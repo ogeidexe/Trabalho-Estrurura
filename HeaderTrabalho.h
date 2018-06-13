@@ -41,7 +41,6 @@ void imprimVetor(int vet[], int n)
 //Método da Bolha---------------------------------------------------------------------
 double bubleSort(int vet[], int x)
 {
-    puts("ordenado metodo bolha");
     int i,j,aux;
     double resultado=0;
     j=x;
@@ -66,7 +65,6 @@ double bubleSort(int vet[], int x)
 //Método da Bolha melhorado-------------------------------------------------------
 double bubleSortM(int vet[], int x)
 {
-    puts("ordenado metodo bolha melhorado");
     int i,j,aux,troucou;
     double resultado=0;
     j=x;
@@ -133,6 +131,18 @@ float quickSort(int vet[], int inicio,int fim, float resultado)
 inserctSort(int vet[], int x)
 {
     float resultado;
+    int i, j, aux;
+    
+    for(i = 1; i < x; i++)      
+    {
+        aux =  vet[i];
+        for(j = i;(j > 0) && (aux < vet[j-1]); j--)
+        {
+            vet[j] = vet[j - 1];
+        }
+        vet[j] = aux;
+    }
+    
     return resultado;
 }
 //Método de Ordenação por Incrementos decrecentes---------------------------------------

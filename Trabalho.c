@@ -24,7 +24,7 @@ int main()
             recarrega(vaux1,v1,x3);
             
             //Método da Bolha  
-            printf("Rodando Buble Sort");
+            printf("Rodando Buble Sort \n");
             start_t = clock();
             processador[0] = bubleSort(vaux1,x3);
             end_t = clock();
@@ -34,6 +34,7 @@ int main()
             recarrega(vaux1,v1,x3);
             
             //  Método da Bolha melhorado
+            printf("Rodando Buble Sort Melhorado \n");
             start_t = clock();
             processador[1] = bubleSortM(vaux1,x3);
             end_t = clock();
@@ -43,14 +44,23 @@ int main()
             recarrega(vaux1,v1,x3);
 
             //Método de Ordenação Troca e Partição 
-            printf("Rodando Quick Sort");
+            printf("Rodando Quick Sort \n");
             start_t = clock();
             processador[2] = quickSort(vaux1,0,x3,0.0);
             end_t = clock();
-            total[1] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            total[2] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            
+            //Recanrregando o vetor 
+            recarrega(vaux1,v1,x3);
+
             //Método de Ordenação Inserção Direta 
-    //         processador[3] = inserctSort(v1);
-    //         //Método de Ordenação por Incrementos decrecentes 
+            printf("Rodando Inserct Sort \n");
+            start_t = clock();
+            processador[3] = inserctSort(vaux1,x3);
+            end_t = clock();
+            total[3] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            
+            //Método de Ordenação por Incrementos decrecentes 
     //         processador[4] = shellSort(v1);
     //         //Método de Ordenação por inserção direta
     //         processador[5] = selectSort(v1);
