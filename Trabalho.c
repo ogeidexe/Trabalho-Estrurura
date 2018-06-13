@@ -29,7 +29,6 @@ int main()
             processador[0] = bubleSort(vaux1,x3);
             end_t = clock();
             total[0] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
-            imprimVetor(vaux1,x3);
             
             //Recanrregando o vetor 
             recarrega(vaux1,v1,x3);
@@ -46,11 +45,9 @@ int main()
             //Método de Ordenação Troca e Partição 
             printf("Rodando Quick Sort");
             start_t = clock();
-            processador[2] = quickSort(vaux1,0,x3);
+            processador[2] = quickSort(vaux1,0,x3,0.0);
             end_t = clock();
             total[1] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
-            printf("\n");
-            imprimVetor(vaux1,x3);
             //Método de Ordenação Inserção Direta 
     //         processador[3] = inserctSort(v1);
     //         //Método de Ordenação por Incrementos decrecentes 

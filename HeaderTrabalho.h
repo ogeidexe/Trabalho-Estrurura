@@ -116,18 +116,15 @@ int partiociona(int vet[], int incio, int fim)
     return dir;
 }
 //chama recursivamente a função partiociona 
-float quickSort(int vet[], int inicio,int fim)
+float quickSort(int vet[], int inicio,int fim, float resultado)
 {
-    float resultado;
     int pivo;
     if(fim > inicio)
     {
-        pivo = partiociona(vet,inicio,fim);
-        quickSort(vet, inicio , pivo-1);
-        quickSort(vet ,pivo+1 ,fim);
-    }
-
-    
+        pivo = partiociona(vet, inicio ,fim );
+        quickSort(vet, inicio , pivo-1, resultado);
+        quickSort(vet ,pivo+1 ,fim , resultado);
+    }    
     return resultado;
 }
 
