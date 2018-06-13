@@ -60,8 +60,16 @@ int main()
             end_t = clock();
             total[3] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
             
+            //Recanrregando o vetor 
+            recarrega(vaux1,v1,x3);
+
             //Método de Ordenação por Incrementos decrecentes 
-    //         processador[4] = shellSort(v1);
+            printf("Rodando Shell Sort");
+            start_t = clock();
+            processador[4] = shellSort(v1, x3);
+            end_t = clock();
+            total[3] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            
     //         //Método de Ordenação por inserção direta
     //         processador[5] = selectSort(v1);
     //         //Método de Ordenação tipo arvore

@@ -130,7 +130,7 @@ float quickSort(int vet[], int inicio,int fim, float resultado)
 //Método de Ordenação Inserção Direta-----------------------------------------------------
 inserctSort(int vet[], int x)
 {
-    float resultado;
+    float resultado = 0;
     int i, j, aux;
     
     for(i = 1; i < x; i++)      
@@ -139,28 +139,28 @@ inserctSort(int vet[], int x)
         for(j = i;(j > 0) && (aux < vet[j-1]); j--)
         {
             vet[j] = vet[j - 1];
+            resultado++;
         }
         vet[j] = aux;
     }
-    
     return resultado;
 }
 //Método de Ordenação por Incrementos decrecentes---------------------------------------
 shellSort(int vet[], int x)
 {
-    float resultado;
+    float resultado = 0;
     return resultado;
 }
 //Método de Ordenação por inserção direta------------------------------------------------------
 selectSort(int vet[], int x)
 {
-    float resultado;
+    float resultado = 0;
     return resultado;
 }
 //Método de Ordenação tipo arvore----------------------------------------------------------------
 heapSort(int vet[], int x)
 {
-    float resultado;
+    float resultado = 0;
     return resultado;
 }
 
@@ -181,10 +181,11 @@ void resultado(double vet[],int tamResultado)
 /////FUNÇOES ASSEÇORIOS///////////
 //recarrega os vetores com o mesmo valor para que a mesma amostra seja reutilizada
 //onde v1 é o vetor de destino e v2 e o vetor de origem 
-void recarrega(int v1[], int v2[],int x)
+void recarrega(int destino[], int origem[],int x)
 {
+    printf("recarregando o vetor\n");
     for(int i=0;i<x;i++)
     {
-        v1[i]=v2[i];
+        destino[i]=origem[i];
     }  
 }
