@@ -91,6 +91,31 @@ double bubleSortM(int vet[], int x)
 }
 //Método de Ordenação Troca e Partição-------------------------------------------------
 
+//Fução que calcula o pivo é tabem troca ordenando os dados 
+int partiociona(int vet[], int incio, int fim)
+{
+    int esq, dir, pivo, aux;
+    esq =  incio;
+    dir = fim;
+    pivo = vet[incio];
+    while(esq < dir)
+    {
+        while(vet[esq] <= pivo)
+            esq++;
+        while(vet[dir] > pivo )
+            dir--;
+        if (esq < dir)
+        {
+            aux = vet[esq];
+            vet[esq] = vet[dir];
+            vet[dir] = aux;
+        }
+    }
+    vet[incio] = vet[dir];
+    vet[dir] = pivo;
+    return dir;
+}
+//chama recursivamente a função partiociona 
 float quickSort(int vet[], int inicio,int fim)
 {
     float resultado;
@@ -103,9 +128,6 @@ float quickSort(int vet[], int inicio,int fim)
 
     
     return resultado;
-}
-partiociona(){
-
 }
 
 
@@ -133,6 +155,9 @@ heapSort(int vet[], int x)
     float resultado;
     return resultado;
 }
+
+
+
 //função para apresentar os resultados de cada interação-------------------------------
 void resultado(double vet[],int tamResultado)
 {
@@ -142,4 +167,43 @@ void resultado(double vet[],int tamResultado)
         printf("|Tempo|%lf ||  \n",vet[i]);
     }
     
+}   float resultado;
+    return resultado;
+}
+//Método de Ordenação por inserção direta------------------------------------------------------
+selectSort(int vet[], int x)
+{
+    float resultado;
+    return resultado;
+}
+//Método de Ordenação tipo arvore----------------------------------------------------------------
+heapSort(int vet[], int x)
+{
+    float resultado;
+    return resultado;
+}
+
+
+
+//função para apresentar os resultados de cada interação-------------------------------
+void resultado(double vet[],int tamResultado)
+{
+    
+    for(int i = 0; i < tamResultado; i++)
+    {
+        printf("|Tempo|%lf ||  \n",vet[i]);
+    }
+    
+}
+
+
+/////FUNÇOES ASSEÇORIOS///////////
+//recarrega os vetores com o mesmo valor para que a mesma amostra seja reutilizada
+//onde v1 é o vetor de destino e v2 e o vetor de origem 
+void recarrega(int v1[], int v2[],int x)
+{
+    for(int i;i<x;i++)
+    {
+        v1[i]=v2[i];
+    }  
 }
