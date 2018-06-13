@@ -120,7 +120,8 @@ float quickSort(int vet[], int inicio,int fim)
 {
     float resultado;
     int pivo;
-    if(inicio>fim){
+    if(fim > inicio)
+    {
         pivo = partiociona(vet,inicio,fim);
         quickSort(vet, inicio , pivo-1);
         quickSort(vet ,pivo+1 ,fim);
@@ -167,33 +168,6 @@ void resultado(double vet[],int tamResultado)
         printf("|Tempo|%lf ||  \n",vet[i]);
     }
     
-}   float resultado;
-    return resultado;
-}
-//Método de Ordenação por inserção direta------------------------------------------------------
-selectSort(int vet[], int x)
-{
-    float resultado;
-    return resultado;
-}
-//Método de Ordenação tipo arvore----------------------------------------------------------------
-heapSort(int vet[], int x)
-{
-    float resultado;
-    return resultado;
-}
-
-
-
-//função para apresentar os resultados de cada interação-------------------------------
-void resultado(double vet[],int tamResultado)
-{
-    
-    for(int i = 0; i < tamResultado; i++)
-    {
-        printf("|Tempo|%lf ||  \n",vet[i]);
-    }
-    
 }
 
 
@@ -202,7 +176,7 @@ void resultado(double vet[],int tamResultado)
 //onde v1 é o vetor de destino e v2 e o vetor de origem 
 void recarrega(int v1[], int v2[],int x)
 {
-    for(int i;i<x;i++)
+    for(int i=0;i<x;i++)
     {
         v1[i]=v2[i];
     }  
