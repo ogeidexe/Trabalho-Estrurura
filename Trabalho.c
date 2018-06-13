@@ -5,9 +5,9 @@
 
 int main()
 {
-    printf("eu estou aqui")
-    int x,v1[x3],v2[x4],v3[x5];
-    int vaux1[x3], vaux2[x4], vaux3[x5];
+    printf("eu estou aqui");
+    int v1[x3],v2[x4],v3[x5];
+    int x,vaux1[x3], vaux2[x4], vaux3[x5];
     float processador[7];
     clock_t start_t , end_t;  
     float total[7];
@@ -27,7 +27,7 @@ int main()
             
              //Método da Bolha  
             start_t = clock();
-            processador[0] = bubleSort(v1,x3);
+            processador[0] = bubleSort(vaux1,x3);
             end_t = clock();
             total[0] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
             //Recanrregando o vetor 
@@ -38,7 +38,7 @@ int main()
 
             //  Método da Bolha melhorado
             start_t = clock();
-            processador[1] = bubleSortM(v1,x3);
+            processador[1] = bubleSortM(vaux1,x3);
             end_t = clock();
             total[1] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
             //Método de Ordenação Troca e Partição 

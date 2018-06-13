@@ -90,11 +90,25 @@ double bubleSortM(int vet[], int x)
     return resultado;
 }
 //Método de Ordenação Troca e Partição-------------------------------------------------
-quickSort(int vet[], int x)
+
+float quickSort(int vet[], int inicio,int fim)
 {
     float resultado;
+    int pivo;
+    if(inicio>fim){
+        pivo = partiociona(vet,inicio,fim);
+        quickSort(vet, inicio , pivo-1);
+        quickSort(vet ,pivo+1 ,fim);
+    }
+
+    
     return resultado;
 }
+partiociona(){
+
+}
+
+
 //Método de Ordenação Inserção Direta-----------------------------------------------------
 inserctSort(int vet[], int x)
 {
