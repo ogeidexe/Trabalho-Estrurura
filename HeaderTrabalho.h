@@ -150,7 +150,7 @@ shellSort(int vet[], int x)
 {
     float resultado = 0;
 
-    
+
     return resultado;
 }
 //Método de Ordenação por inserção direta------------------------------------------------------
@@ -181,6 +181,7 @@ void resultado(double vet[],int tamResultado)
 
 
 /////FUNÇOES ASSEÇORIOS///////////
+
 //recarrega os vetores com o mesmo valor para que a mesma amostra seja reutilizada
 //onde v1 é o vetor de destino e v2 e o vetor de origem 
 void recarrega(int destino[], int origem[],int x)
@@ -191,3 +192,30 @@ void recarrega(int destino[], int origem[],int x)
         destino[i]=origem[i];
     }  
 }
+
+int void subMenu()
+{
+    int x;
+    puts("++++++++++++++++Apos a execução das funções o que deseja fazer ");
+    puts("1. Quero ver o tempo  gasto em cada função" );
+    puts("2. Quero ver a quantidade de trocas de cada função ");
+    puts("3. Quero ver a quantidade de interações de cada função");
+    puts("4. Quero ver ambos os vetores ordenado é desordenado(devido a uma limitação apenas os primeiros 100 elementos serão mostrados )");
+    puts("5. Quero ver tudo");
+    scanf("%d",&x);
+    return x;
+}
+
+
+
+
+
+
+
+
+for( i = 0; i < 10; i++)
+{
+    /* code */
+}
+
+
