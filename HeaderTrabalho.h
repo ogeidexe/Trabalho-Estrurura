@@ -149,6 +149,8 @@ inserctSort(int vet[], int x)
 shellSort(int vet[], int x)
 {
     float resultado = 0;
+
+    
     return resultado;
 }
 //Método de Ordenação por inserção direta------------------------------------------------------
