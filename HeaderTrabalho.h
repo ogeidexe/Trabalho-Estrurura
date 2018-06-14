@@ -128,7 +128,7 @@ float quickSort(int vet[], int inicio,int fim, float resultado)
 
 
 //Método de Ordenação Inserção Direta-----------------------------------------------------
-inserctSort(int vet[], int x)
+float inserctSort(int vet[], int x)
 {
     float resultado = 0;
     int i, j, aux;
@@ -146,23 +146,97 @@ inserctSort(int vet[], int x)
     return resultado;
 }
 //Método de Ordenação por Incrementos decrecentes---------------------------------------
-shellSort(int vet[], int x)
+float shellSort(int vet[], int x)
 {
     float resultado = 0;
-
+    int i , j , value;
+    int gap = 1;
+    while(gap < x) {
+        gap = 3*gap+1;
+    }
+    while ( gap > 1) {
+        gap /= 3;
+        for(i = gap; i < x; i++) {
+            value = vet[i];
+            j = i;
+            while (j >= gap && value < vet[j - gap]) {
+                vet[j] = vet [j - gap];
+                j = j - gap;
+                resultado++;
+            }
+            vet [j] = value;
+        }
+    }
 
     return resultado;
 }
 //Método de Ordenação por inserção direta------------------------------------------------------
-selectSort(int vet[], int x)
+float selectSort(int vet[], int x)
 {
     float resultado = 0;
+    int i,j, menor, troca;
+    for( i = 0; i < x-1; i++)
+    {
+        menor =  i;
+        for( j = i+1; i < x; j++)
+        {
+            if(vet[j] < vet[menor])
+            {
+                menor = j;
+            } 
+        }
+        if (i != menor  ) {
+            troca = vet[i];
+            vet[i] =  vet[menor];
+            vet[menor] = troca;
+            //resultado++;
+        }
+    }
     return resultado;
 }
 //Método de Ordenação tipo arvore----------------------------------------------------------------
-heapSort(int vet[], int x)
+void criaHeap(int vet[], int i, int f)
+{
+    int aux = vet[i];
+    int j = i * 2 +1;
+    
+    while(i <= f)
+    {
+        if(vet[j] < vet[j + 1])
+        {
+            j = j + 1;
+        }
+        
+        if (aux < vet [j]) 
+        {
+           vet[i] = vet [j];
+           i = j;
+           j = 2 * i + 1;
+        }
+        else
+        {
+            j = f + 1;
+        }     
+    }
+    vet[i] =  aux;
+}
+
+float heapSort(int vet[], int x)
 {
     float resultado = 0;
+    int i, aux;
+    for(i = (x-1)/2; i >= 0; i--)
+    {
+        criaHeap( vet, i, x-1);
+    }
+    for(i = x - 1;i >= 1; i--)
+    {
+        aux = vet[0];
+        vet [0] = vet [i];
+        vet [i] = aux;
+        criaHeap(vet, 0, i - 1);
+    }
+
     return resultado;
 }
 
@@ -190,10 +264,11 @@ void recarrega(int destino[], int origem[],int x)
     for(int i=0;i<x;i++)
     {
         destino[i]=origem[i];
-    }  
+    }
+    printf("\n=====ok==========\n");  
 }
 
-int void subMenu()
+int subMenu()
 {
     int x;
     puts("++++++++++++++++Apos a execução das funções o que deseja fazer ");
@@ -205,17 +280,3 @@ int void subMenu()
     scanf("%d",&x);
     return x;
 }
-
-
-
-
-
-
-
-
-for( i = 0; i < 10; i++)
-{
-    /* code */
-}
-
-

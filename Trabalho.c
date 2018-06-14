@@ -8,9 +8,9 @@ int main()
     printf("eu estou aqui");
     int v1[x3],v2[x4],v3[x5];
     int x,vaux1[x3], vaux2[x4], vaux3[x5];
-    float processador[7];
+    float processador[21];
     clock_t start_t , end_t;  
-    float total[7];
+    float total[21];
     
     geraValores(v2,x4);
     geraValores(v3,x5);
@@ -60,22 +60,39 @@ int main()
             end_t = clock();
             total[3] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
             
-            //Recanrregando o vetor 
             recarrega(vaux1,v1,x3);
 
             //Método de Ordenação por Incrementos decrecentes 
-            printf("Rodando Shell Sort");
+            printf("Rodando Shell Sort\n");
             start_t = clock();
-            processador[4] = shellSort(v1, x3);
+            processador[4] = shellSort(vaux1, x3);
+            end_t = clock();    
+            total[4] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            
+            recarrega(vaux1,v1,x3);
+
+            //Método de Ordenação por inserção direta
+            printf("Rodando Select sort\n");
+            start_t = clock();
+            processador[5] = selectSort(vaux1, x3);
             end_t = clock();
-            total[3] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            total[5] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
             
-    //         //Método de Ordenação por inserção direta
-    //         processador[5] = selectSort(v1);
-    //         //Método de Ordenação tipo arvore
-    //         processador[6] = heapSort(v1);
-    //         break;
+
+            recarrega(vaux1,v1,x3);
             
+        
+            //Método de Ordenação tipo arvore
+            printf("Rodando Heap Sort");
+            start_t = clock();            
+            processador[6] = heapSort(vaux1, x3);
+            end_t = clock();
+            total[6] = (double) (end_t - start_t) / CLOCKS_PER_SEC;
+            x = subMenu();
+            break;
+             
+
+
     //     case 2:
     //         //Método da Bolha 
     //         processador[0] = bubleSort(v2);
