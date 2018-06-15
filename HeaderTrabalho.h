@@ -171,75 +171,100 @@ float shellSort(int vet[], int x)
     return resultado;
 }
 //Método de Ordenação por inserção direta------------------------------------------------------
-float selectSort(int vet[], int x)
+float selectSort(int vet[], int tam)
 {
     float resultado = 0;
-    int i,j, menor, troca;
-    for( i = 0; i < x-1; i++)
+    int i, j, min, aux;
+    for (i = 0; i < (tam-1); i++) 
     {
-        menor =  i;
-        for( j = i+1; i < x; j++)
-        {
-            if(vet[j] < vet[menor])
-            {
-                menor = j;
-            } 
+        min = i;
+        for (j = (i+1); j < tam; j++) {
+        if(vet[j] < vet[min]) 
+            min = j;
         }
-        if (i != menor  ) {
-            troca = vet[i];
-            vet[i] =  vet[menor];
-            vet[menor] = troca;
-            //resultado++;
+        if (vet[i] != vet[min]) {
+        aux = vet[i];
+        vet[i] = vet[min];
+        vet[min] = aux;
         }
     }
     return resultado;
 }
 //Método de Ordenação tipo arvore----------------------------------------------------------------
-void criaHeap(int vet[], int i, int f)
-{
-    int aux = vet[i];
-    int j = i * 2 +1;
+// void criaHeap(int vet[], int i, int f)
+// {
+//     int aux = vet[i];
+//     int j = i * 2 +1;
     
-    while(i <= f)
-    {
-        if(vet[j] < vet[j + 1])
-        {
-            j = j + 1;
-        }
+//     while(i <= f)
+//     {
+//         if(vet[j] < vet[j + 1])
+//         {
+//             j = j + 1;
+//         }
         
-        if (aux < vet [j]) 
-        {
-           vet[i] = vet [j];
-           i = j;
-           j = 2 * i + 1;
-        }
-        else
-        {
-            j = f + 1;
-        }     
-    }
-    vet[i] =  aux;
+//         if (aux < vet [j]) 
+//         {
+//            vet[i] = vet [j];
+//            i = j;
+//            j = 2 * i + 1;
+//         }
+//         else
+//         {
+//             j = f + 1;
+//         }     
+//     }
+//     vet[i] =  aux;
+// }
+
+// float heapSort(int vet[], int x)
+// {
+//     float resultado = 0;
+//     int i, aux;
+//     for(i = (x-1)/2; i >= 0; i--)
+//     {
+//         criaHeap( vet, i, x-1);
+//     }
+//     for(i = x - 1;i >= 1; i--)
+//     {
+//         aux = vet[0];
+//         vet [0] = vet [i];
+//         vet [i] = aux;
+//         criaHeap(vet, 0, i - 1);
+//     }
+
+//     return resultado;
+// }
+float heapSort(int a[], int n) {
+   int i = n / 2, pai, filho, t;
+   float resultado;
+   while(1) {
+      if (i > 0) {
+          i--;
+          t = a[i];
+      } else {
+          n--;
+          if (n == 0) return 0.0;
+          t = a[n];
+          a[n] = a[0];
+      }
+      pai = i;
+      filho = i * 2 + 1;
+      while (filho < n) {
+          if ((filho + 1 < n)  &&  (a[filho + 1] > a[filho]))
+              filho++;
+          if (a[filho] > t) {
+             a[pai] = a[filho];
+             pai = filho;
+             filho = pai * 2 + 1;
+          } else {
+             break;
+          }
+      }
+      a[pai] = t;
+   }
+   return resultado;
 }
-
-float heapSort(int vet[], int x)
-{
-    float resultado = 0;
-    int i, aux;
-    for(i = (x-1)/2; i >= 0; i--)
-    {
-        criaHeap( vet, i, x-1);
-    }
-    for(i = x - 1;i >= 1; i--)
-    {
-        aux = vet[0];
-        vet [0] = vet [i];
-        vet [i] = aux;
-        criaHeap(vet, 0, i - 1);
-    }
-
-    return resultado;
-}
-
 
 
 //função para apresentar os resultados de cada interação-------------------------------
@@ -253,30 +278,98 @@ void resultado(double vet[],int tamResultado)
     
 }
 
+void mostraTempoGasto(float vtempo[],int i)
+{
+    if(i==1)printf("Caso com 5000 Elementos\n");
+    if(i==2)printf("Caso com 50.000 Elementos\n");
+    if(i==3)printf("Caso com 500.000 Elementos\n");
+    printf("                    tempos    |desordenado(aleatorio)   |              para decrecente   |\t        para crescente   |\n");
+    printf("1. Método da Bolha            |\t %lf \t ms \t| \t %f \t ms \t | \t %f \t ms \t |\n",vtempo[0] ,vtempo[7] ,vtempo[14]);   
+    printf("2. Método da Bolha Melhorado  |\t %lf \t ms \t| \t %f \t ms \t | \t %f \t ms \t |\n",vtempo[1] ,vtempo[8] ,vtempo[15]);  
+    printf("3. Quicksort                  |\t %lf \t ms \t| \t %f \t ms \t | \t %f \t ms \t |\n",vtempo[2] ,vtempo[9] ,vtempo[16]);     
+    printf("4. Inserção Direta            |\t %lf \t ms \t| \t %f \t ms \t | \t %f \t ms \t |\n",vtempo[3] ,vtempo[10] ,vtempo[17]);     
+    printf("5. Shellsort                  |\t %lf \t ms \t| \t %f \t ms \t | \t %f \t ms \t |\n",vtempo[4] ,vtempo[11] ,vtempo[18]);      
+    printf("6. Seleção Direta             |\t %lf \t ms \t| \t %f \t ms \t | \t %f \t ms \t |\n",vtempo[5] ,vtempo[12] ,vtempo[19]);      
+    printf("7. Heapsort                   |\t %lf \t ms \t| \t %f \t ms \t | \t %f \t ms \t |\n",vtempo[6] ,vtempo[13] ,vtempo[20]);      
+}
 
-/////FUNÇOES ASSEÇORIOS///////////
+/////FUNÇOES COMPLEMENTARES///////////
 
 //recarrega os vetores com o mesmo valor para que a mesma amostra seja reutilizada
 //onde v1 é o vetor de destino e v2 e o vetor de origem 
 void recarrega(int destino[], int origem[],int x)
 {
-    printf("recarregando o vetor\n");
+    //printf("recarregando o vetor\n");
     for(int i=0;i<x;i++)
     {
         destino[i]=origem[i];
     }
-    printf("\n=====ok==========\n");  
+    printf(" ok ");  
 }
 
 int subMenu()
 {
     int x;
+    printf("\n");
     puts("++++++++++++++++Apos a execução das funções o que deseja fazer ");
     puts("1. Quero ver o tempo  gasto em cada função" );
     puts("2. Quero ver a quantidade de trocas de cada função ");
     puts("3. Quero ver a quantidade de interações de cada função");
-    puts("4. Quero ver ambos os vetores ordenado é desordenado(devido a uma limitação apenas os primeiros 100 elementos serão mostrados )");
+    puts("4. Quero ver vetores (devido a uma limitação apenas os primeiros 100 elementos serão mostrados )");
     puts("5. Quero ver tudo");
     scanf("%d",&x);
     return x;
 }
+
+//usando quick sort para ordenar os valores de forma decrecente 
+
+void ordemDecrecente(int origem[],int destino[],int x )
+{
+    int i, j=x-1;
+    for(i = 0; i < x; i++,j--)
+    {
+        destino[i] =  origem [j];
+    }
+}
+
+
+ 
+
+// //Método de Ordenação Troca e Partição-------------------------------------------------
+
+// //Fução que calcula o pivo é tabem troca ordenando os dados 
+// int partiociona(int vet[], int incio, int fim)
+// {
+//     int esq, dir, pivo, aux;
+//     esq =  incio;
+//     dir = fim;
+//     pivo = vet[incio];
+//     while(esq < dir)
+//     {
+//         while(vet[esq] <= pivo)
+//             esq++;
+//         while(vet[dir] > pivo )
+//             dir--;
+//         if (esq < dir)
+//         {
+//             aux = vet[esq];
+//             vet[esq] = vet[dir];
+//             vet[dir] = aux;
+//         }
+//     }
+//     vet[incio] = vet[dir];
+//     vet[dir] = pivo;
+//     return dir;
+// }
+// //chama recursivamente a função partiociona 
+// float ordemDecrecente(int vet[], int inicio,int fim, float resultado)
+// {
+//     int pivo;
+//     if(fim > inicio)
+//     {
+//         pivo = partiociona(vet, inicio ,fim );
+//         ordemDecrecente(vet, inicio , pivo-1, resultado);
+//         ordemDecrecente(vet ,pivo+1 ,fim , resultado);
+//     }    
+//     return resultado;
+// }
