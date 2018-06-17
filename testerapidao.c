@@ -1,23 +1,24 @@
 #include <stdio.h>
-
-void ordemDecrecente(int vet1[],int aux2[],int x )
-{
-    int i, j=x-1;
-    for(i = 0; i < x; i++,j--)
-    {
-        aux2[i] =  vet1 [j];
-    }
-}
+#include <math.h>
 
 int main()
 {
-    int vet[]={1,2,3,4,5},vet2[5],i;
-    ordemDecrecente(vet,vet2,5);
-    for(i=0;i<5;i++)
-    {
-        printf("%d ",vet2[i]);
-    }
-     return 0;
+    long long y;
+    long double x=1;
+    unsigned long long int numero;
+    int i;
+    printf("%Lf\n",x);
+    //x = x + (double)11111111111111.0;
+    // for(i=0;i<30;i++)
+    // {
+    //     x = x *10;
+    // }
+    x = 1e+21;
+    x = x+40000.00;
+    x = x + 9e+1;
+    printf("%Lf \n",x);
+    printf("%ld", sizeof(x));
+    
 }
 
 
